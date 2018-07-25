@@ -12,6 +12,6 @@ public class BulletMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rb.AddForce(transform.forward * speed);
+        rb.AddForce(transform.right * speed);
 	}
 }
