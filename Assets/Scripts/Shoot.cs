@@ -13,7 +13,8 @@ public class Shoot : MonoBehaviour {
     Quaternion rotation;
 	// Update is called once per frame
 	void Update () {
-        delay++;
+        //delay++;
+        delay += Time.deltaTime;
         if (delay >= delayMax)
         {
             if (Input.GetKey(KeyCode.UpArrow))
