@@ -6,14 +6,24 @@ public class BulletMove : MonoBehaviour {
     public Rigidbody2D rb;
     public float speed;
     public float range;
-	// Use this for initialization
+    public float maxRange;
+    // Use this for initialization
 	void Start () {
-		
+
+        rb.AddForce(transform.right * speed);
 	}
 	
 	// Update is called once per frame
     void Update () {
         
-        rb.AddForce(transform.right * speed);
+        //rb.AddForce(transform.right * speed);
+        if(range >= maxRange)
+        {
+            Destroy(this.gameObject);
+        }
+        else{
+            
+            range++;
+        }
 	}
 }
