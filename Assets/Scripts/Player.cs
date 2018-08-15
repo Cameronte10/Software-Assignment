@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     public Rigidbody2D rb2D;
     public float maxSpeed;
     public float speed;
-    public float bulletDamage;
+    public static float bulletDamage;
 
     public GameObject bullet;
     public float delay;
@@ -75,6 +75,10 @@ public class Player : MonoBehaviour {
             }
 
         }
+    }
+   public void Test()
+    {
+        Debug.Log("Hey it worked");    
     }
 
 }
