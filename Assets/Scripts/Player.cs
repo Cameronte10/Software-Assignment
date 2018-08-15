@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour {
+public class Player : MonoBehaviour {
+    public static Player instance;
     public Rigidbody2D rb2D;
     public float maxSpeed;
     public float speed;
-   
+    public float bulletDamage;
 
     public GameObject bullet;
     public float delay;
     public float delayMax;
 
     Quaternion rotation;
+
+   
 	// Use this for initialization
 	void Start () {
 		
