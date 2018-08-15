@@ -7,6 +7,12 @@ public class Move : MonoBehaviour {
     public float maxSpeed;
     public float speed;
    
+
+    public GameObject bullet;
+    public float delay;
+    public float delayMax;
+
+    Quaternion rotation;
 	// Use this for initialization
 	void Start () {
 		
@@ -31,5 +37,41 @@ public class Move : MonoBehaviour {
         {
             rb2D.AddForce(transform.right * speed);
         }
+        Shoot();
     }
+
+    void Shoot()
+    {
+        delay++;
+        //delay += Time.deltaTime;
+        if (delay >= delayMax)
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                rotation = Quaternion.Euler(0, 0, 90);
+                Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), rotation);
+                delay = 0;
+            }
+            else if (Input.GetKey(KeyCode.DownArrow))
+            {
+                rotation = Quaternion.Euler(0, 0, -90);
+                Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), rotation);
+                delay = 0;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rotation = Quaternion.Euler(0, 0, 0);
+                Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), rotation);
+                delay = 0;
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                rotation = Quaternion.Euler(0, 0, 180);
+                Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), rotation);
+                delay = 0;
+            }
+
+        }
+    }
+
 }
