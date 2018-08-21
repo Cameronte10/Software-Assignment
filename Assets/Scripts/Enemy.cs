@@ -10,12 +10,14 @@ public class Enemy : MonoBehaviour {
     public float health;
     //public float bulletDamage = Player.instance.bulletDamage;
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
             transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target.position, speed);
             if(health <= 0)
         {
@@ -34,4 +36,9 @@ public class Enemy : MonoBehaviour {
 
         }*/
 	}
+
+    public void TakeDamage()
+    {
+        health -= Player.bulletDamage;
+    }
 }

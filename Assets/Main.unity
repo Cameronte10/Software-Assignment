@@ -400,6 +400,33 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 892fd17cec5824285bfd2f2c62456834, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &481052321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1309929664377348, guid: 49a3b659728af4d358d2cd186a8f031f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1477703147}
+--- !u!114 &481052322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 481052321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3a1dc96c6404344a43d525b54ba1aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2D: {fileID: 481052325}
+  maxSpeed: 0
+  speed: 0
+  bullet: {fileID: 1743157785487264, guid: 892fd17cec5824285bfd2f2c62456834, type: 2}
+  delay: 0
+  delayMax: 0
+--- !u!50 &481052325 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 50503375561531962, guid: 49a3b659728af4d358d2cd186a8f031f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1477703147}
 --- !u!1 &1078026050
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +779,8 @@ Prefab:
       propertyPath: bulletDamage
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114497845773117258, guid: 49a3b659728af4d358d2cd186a8f031f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 49a3b659728af4d358d2cd186a8f031f, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1745471681
