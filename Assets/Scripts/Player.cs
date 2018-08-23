@@ -2,29 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
-    public static Player instance;
+public class Player : MonoBehaviour
+{
+    public static Player playerScript;
+    public GameObject player;
     public Rigidbody2D rb2D;
     public float maxSpeed;
     public float speed;
-    public static float bulletDamage;
-
+    public int bulletDamage = 1;
+    public int health;
     public GameObject bullet;
     public float delay;
     public float delayMax;
 
     Quaternion rotation;
 
-   
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
 
-		if(Input.GetKey(KeyCode.W))
+    // Use this for initialization
+    void Start()
+    {
+        player = GameObject.Find("Player");
+        playerScript = player.GetComponent<Player>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Input.GetKey(KeyCode.W))
         {
             rb2D.AddForce(transform.up * speed);
         }
@@ -40,13 +45,14 @@ public class Player : MonoBehaviour {
         {
             rb2D.AddForce(transform.right * speed);
         }
+        Debug.Log(rb2D.velocity);
         Shoot();
+      
     }
 
     void Shoot()
     {
-        delay++;
-        //delay += Time.deltaTime;
+        delay += 10 * Time.deltaTime;
         if (delay >= delayMax)
         {
             if (Input.GetKey(KeyCode.UpArrow))
@@ -76,9 +82,12 @@ public class Player : MonoBehaviour {
 
         }
     }
-   public void Test()
-    {
-        Debug.Log("Hey it worked");    
-    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            health -= Enemy.enemyScript.damage;
+        }
+    }
 }

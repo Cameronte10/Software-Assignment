@@ -28,11 +28,11 @@ public class GameController : MonoBehaviour {
     void SpawnEnemies()
     {
         //not working yet
-        Vector2 pos2D = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
+        Vector3 pos3D = new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax), 0);
         
         //spawnPos.position = pos2D;
         GameObject enemyPrefab = enemy[Random.Range(0, enemy.Length)];
-        enemyPrefab.transform.position = pos2D;
-        //Instantiate(enemyPrefab, new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax), 0));
+        //enemyPrefab.transform.position = pos2D;
+        Instantiate(enemyPrefab, pos3D, gameObject.transform.rotation);
     }
 }
