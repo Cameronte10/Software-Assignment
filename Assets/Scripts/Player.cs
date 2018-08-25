@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         {
             rb2D.AddForce(transform.right * speed);
         }
-        Debug.Log(rb2D.velocity);
+        //Debug.Log(rb2D.velocity);
         Shoot();
       
     }
