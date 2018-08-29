@@ -18,7 +18,7 @@ public class RoomTemplate : MonoBehaviour {
 
     private void Update()
     {
-        if (waitTime >= 3)
+        if (waitTime >= 0.5f)
         {
             for (int i = 0; i < rooms.Count; i++)
             {

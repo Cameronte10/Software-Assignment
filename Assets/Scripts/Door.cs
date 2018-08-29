@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    
     public int side;
     public RoomTemplate template;
     bool allowed = false;
@@ -28,19 +29,97 @@ public class Door : MonoBehaviour
             {
                 //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
                 Vector2 fwd = transform.TransformDirection(Vector2.up);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Math.Infinity, 1);
-                for (int i = 0; i < template.leftRooms.Length-1; i++)
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 20, 12);
+                Debug.Log(hit.transform.gameObject);
+                for (int i = 0; i < template.leftRooms.Length - 1; i++)
                 {
                     if (hit.transform.gameObject == template.leftRooms[i])
                     {
                         allowed = true;
                     }
-                    else if (hit.collider == null || allowed == false)
+                    if (hit.collider == null)
                     {
                         Destroy(gameObject);
                     }
+
                 }
-                print(hit.transform.gameObject);
+                if (hit.collider == null || allowed == false)
+                {
+                    Destroy(gameObject);
+                }
+
+            }
+            if (side == 1)
+            {
+                //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
+                Vector2 fwd = transform.TransformDirection(Vector2.up);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 20, 12);
+                Debug.Log(hit.transform.gameObject);
+                for (int i = 0; i < template.upRooms.Length - 1; i++)
+                {
+                    if (hit.transform.gameObject == template.upRooms[i])
+                    {
+                        allowed = true;
+                    }
+                    if (hit.collider == null)
+                    {
+                        Destroy(gameObject);
+                    }
+
+                }
+                if (hit.collider == null || allowed == false)
+                {
+                    Destroy(gameObject);
+                }
+
+            }
+            if (side == 2)
+            {
+                //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
+                Vector2 fwd = transform.TransformDirection(Vector2.up);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 20, 12);
+                Debug.Log(hit.transform.gameObject);
+                for (int i = 0; i < template.rightRooms.Length - 1; i++)
+                {
+                    if (hit.transform.gameObject == template.rightRooms[i])
+                    {
+                        allowed = true;
+                    }
+                    if (hit.collider == null)
+                    {
+                        Destroy(gameObject);
+                    }
+
+                }
+                if (hit.collider == null || allowed == false)
+                {
+                    Destroy(gameObject);
+                }
+
+            }
+            if (side == 3)
+            {
+                //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
+                Vector2 fwd = transform.TransformDirection(Vector2.up);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 20, 12);
+                Debug.Log(hit.transform.gameObject);
+                for (int i = 0; i < template.downRooms.Length - 1; i++)
+                {
+                    if (hit.transform.gameObject == template.downRooms[i])
+                    {
+                        allowed = true;
+                    }
+                    if (hit.collider == null)
+                    {
+                        Destroy(gameObject);
+                    }
+
+                }
+                if (hit.collider == null || allowed == false)
+                {
+                    Destroy(gameObject);
+                }
+
             }
         }
     }
