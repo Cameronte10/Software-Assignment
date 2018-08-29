@@ -525,6 +525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 0
   template: {fileID: 0}
+  lineStart: {fileID: 0}
+  lineEnd: {fileID: 0}
 --- !u!114 &114198804342325548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,6 +540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 3
   template: {fileID: 0}
+  lineStart: {fileID: 0}
+  lineEnd: {fileID: 0}
 --- !u!114 &114610085321963098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -551,6 +555,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 1
   template: {fileID: 0}
+  lineStart: {fileID: 0}
+  lineEnd: {fileID: 0}
 --- !u!114 &114670496602192344
 MonoBehaviour:
   m_ObjectHideFlags: 1

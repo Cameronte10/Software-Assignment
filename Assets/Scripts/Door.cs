@@ -8,11 +8,14 @@ public class Door : MonoBehaviour
     public int side;
     public RoomTemplate template;
     bool allowed = false;
+    public Transform lineStart;
+    public Transform lineEnd;
     // Use this for initialization
     void Start()
     {
         template = GameObject.Find("RoomTemplate").GetComponent<RoomTemplate>();
-
+        lineStart = GameObject.FindWithTag("Right").transform;
+        lineEnd = gameObject.transform.Find("lineEnd");
     }
 
     // Update is called once per frame
@@ -64,7 +67,8 @@ public class Door : MonoBehaviour
                     //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
                     Vector2 fwd = transform.TransformDirection(Vector2.up);
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
-                    //RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(0, -20));
+                    //RaycastHit2D hit = Physics2D.Linecast(lineStart.position, lineEnd.position);
+
                     if (hit)
                     {
                         Debug.Log("HIT");
@@ -94,8 +98,9 @@ public class Door : MonoBehaviour
                 {
                     //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
                     Vector2 fwd = transform.TransformDirection(Vector2.up);
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
-                    //RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(0, -20));
+                    //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
+                    RaycastHit2D hit = Physics2D.Linecast(lineStart.position, lineEnd.position);
+                    Debug.DrawLine(lineStart.position, lineEnd.position, Color.blue);
                     if (hit)
                     {
                         Debug.Log("HIT");
