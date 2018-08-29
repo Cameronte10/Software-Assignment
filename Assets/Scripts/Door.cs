@@ -28,19 +28,19 @@ public class Door : MonoBehaviour
             {
                 //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
                 Vector2 fwd = transform.TransformDirection(Vector2.up);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up);
-                for (int i = 0; i < template.leftRooms.Length; i++)
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Math.Infinity, 1);
+                for (int i = 0; i < template.leftRooms.Length-1; i++)
                 {
                     if (hit.transform.gameObject == template.leftRooms[i])
                     {
                         allowed = true;
                     }
-                    if (hit.collider == null || allowed == false)
+                    else if (hit.collider == null || allowed == false)
                     {
                         Destroy(gameObject);
                     }
                 }
-                print("There is something in front of the object!");
+                print(hit.transform.gameObject);
             }
         }
     }
