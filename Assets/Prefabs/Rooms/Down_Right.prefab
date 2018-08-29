@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 3
   template: {fileID: 0}
 --- !u!114 &114488930952420548
 MonoBehaviour:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 2
   template: {fileID: 0}
 --- !u!114 &114839342641746252
 MonoBehaviour:

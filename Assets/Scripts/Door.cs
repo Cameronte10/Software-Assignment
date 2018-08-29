@@ -10,24 +10,8 @@ public class Door : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (side == 0)
-        {
-            //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
-            Vector2 fwd = transform.TransformDirection(Vector2.up);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up);
-            for (int i = 0; i < template.leftRooms.Length; i++)
-            {
-                if (hit.transform.gameObject == template.leftRooms[i])
-                {
-                    allowed = true;
-                }
-                if (hit.collider != null && template.leftRooms[i] != hit.transform.gameObject)
-                {
+        template = GameObject.Find("RoomTemplate").GetComponent<RoomTemplate>();
 
-                }
-            }
-            print("There is something in front of the object!");
-        }
     }
 
     // Update is called once per frame
@@ -38,6 +22,26 @@ public class Door : MonoBehaviour
     }
     void FixedUpdate()
     {
-
+        if (template.finished == true)
+        {
+            if (side == 0)
+            {
+                //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
+                Vector2 fwd = transform.TransformDirection(Vector2.up);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up);
+                for (int i = 0; i < template.leftRooms.Length; i++)
+                {
+                    if (hit.transform.gameObject == template.leftRooms[i])
+                    {
+                        allowed = true;
+                    }
+                    if (hit.collider == null || allowed == false)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+                print("There is something in front of the object!");
+            }
+        }
     }
 }

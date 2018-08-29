@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 3
   template: {fileID: 0}
 --- !u!114 &114681549019450944
 MonoBehaviour:
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 2
   template: {fileID: 0}
 --- !u!114 &114853773424338104
 MonoBehaviour:
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
+  side: 1
   template: {fileID: 0}
 --- !u!212 &212239318287724318
 SpriteRenderer:
