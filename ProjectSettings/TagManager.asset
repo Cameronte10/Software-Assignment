@@ -7,6 +7,22 @@ TagManager:
   - Bullet
   - Enemy
   - Spawnpoint
+  - Room
+  - All
+  - Down
+  - Down_Left_Up
+  - Left
+  - Left_Down
+  - Left_Right
+  - Left_Up_Right
+  - Right
+  - Right_Down_Left
+  - Right_Up_Down
+  - Up
+  - Up_Down
+  - Up_Left
+  - Up_Right
+  - Down_Right
   layers:
   - Default
   - TransparentFX

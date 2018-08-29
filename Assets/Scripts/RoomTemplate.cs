@@ -6,6 +6,10 @@ public class RoomTemplate : MonoBehaviour {
     public static RoomTemplate roomTemplate;
     public GameObject template;
     public GameObject[] leftRooms;
+    public string[] leftTags;
+    public string[] rightTags;
+    public string[] upTags;
+    public string[] downTags;
     public GameObject[] upRooms;
     public GameObject[] downRooms;
     public GameObject[] rightRooms;
@@ -18,7 +22,7 @@ public class RoomTemplate : MonoBehaviour {
 
     private void Update()
     {
-        if (waitTime >= 0.5f)
+        if (waitTime >= 5f)
         {
             for (int i = 0; i < rooms.Count; i++)
             {

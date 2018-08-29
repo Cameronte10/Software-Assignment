@@ -25,7 +25,7 @@ public class Spawnpoint : MonoBehaviour {
 
     void Start () {
         template = GameObject.Find("RoomTemplate").GetComponent<RoomTemplate>();
-        Invoke("Spawn", 0.01f);
+        Invoke("Spawn", 0.5f);
     }
 	
 	// Update is called once per frame

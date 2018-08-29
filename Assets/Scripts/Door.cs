@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    
+    bool finished = false;
     public int side;
     public RoomTemplate template;
     bool allowed = false;
@@ -19,107 +19,139 @@ public class Door : MonoBehaviour
     void Update()
     {
         Vector2 fwd = transform.TransformDirection(Vector2.up);
-        Debug.DrawRay(transform.position, fwd, Color.blue);
+        Debug.DrawRay(transform.position, fwd, Color.blue, 20);
     }
     void FixedUpdate()
     {
-        if (template.finished == true)
+        if (finished == false)
         {
-            if (side == 0)
+            if (template.finished == true)
             {
-                //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
-                Vector2 fwd = transform.TransformDirection(Vector2.up);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 20, 12);
-                Debug.Log(hit.transform.gameObject);
-                for (int i = 0; i < template.leftRooms.Length - 1; i++)
+                if (side == 0)
                 {
-                    if (hit.transform.gameObject == template.leftRooms[i])
+                    //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
+                    Vector2 fwd = transform.TransformDirection(Vector2.up);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
+                   //RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(0, -20));
+                    if (hit)
                     {
-                        allowed = true;
+                        Debug.Log("HIT");
                     }
-                    if (hit.collider == null)
+
+                    for (int i = 0; i < template.leftTags.Length - 1; i++)
                     {
+
+
+                        if (hit && hit.transform.gameObject.CompareTag(template.leftTags[i]))
+                        {
+                            Debug.Log("Allowed");
+                            allowed = true;
+                            break;
+                        }
+
+
+                    }
+                    if (hit == false && hit.collider == null || allowed == false)
+                    {
+                        Debug.Log("Deadened");
+                        Destroy(gameObject);
+                    }
+
+
+                }
+                if (side == 1)
+                {
+                    //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
+                    Vector2 fwd = transform.TransformDirection(Vector2.up);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
+                    //RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(0, -20));
+                    if (hit)
+                    {
+                        Debug.Log("HIT");
+                    }
+
+                    for (int i = 0; i < template.leftTags.Length - 1; i++)
+                    {
+
+
+                        if (hit && hit.transform.gameObject.CompareTag(template.upTags[i]))
+                        {
+                            Debug.Log("Allowed");
+                            allowed = true;
+                            break;
+                        }
+
+
+                    }
+                    if (hit == false && hit.collider == null || allowed == false)
+                    {
+                        Debug.Log("Deadened");
                         Destroy(gameObject);
                     }
 
                 }
-                if (hit.collider == null || allowed == false)
+                if (side == 2)
                 {
-                    Destroy(gameObject);
-                }
-
-            }
-            if (side == 1)
-            {
-                //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
-                Vector2 fwd = transform.TransformDirection(Vector2.up);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 20, 12);
-                Debug.Log(hit.transform.gameObject);
-                for (int i = 0; i < template.upRooms.Length - 1; i++)
-                {
-                    if (hit.transform.gameObject == template.upRooms[i])
+                    //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
+                    Vector2 fwd = transform.TransformDirection(Vector2.up);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
+                    //RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(0, -20));
+                    if (hit)
                     {
-                        allowed = true;
+                        Debug.Log("HIT");
                     }
-                    if (hit.collider == null)
+
+                    for (int i = 0; i < template.leftTags.Length - 1; i++)
                     {
+
+
+                        if (hit && hit.transform.gameObject.CompareTag(template.rightTags[i]))
+                        {
+                            Debug.Log("Allowed");
+                            allowed = true;
+                            break;
+                        }
+
+
+                    }
+                    if (hit == false && hit.collider == null || allowed == false)
+                    {
+                        Debug.Log("Deadened");
                         Destroy(gameObject);
                     }
 
                 }
-                if (hit.collider == null || allowed == false)
-                {
-                    Destroy(gameObject);
-                }
-
-            }
-            if (side == 2)
-            {
-                //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
-                Vector2 fwd = transform.TransformDirection(Vector2.up);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 20, 12);
-                Debug.Log(hit.transform.gameObject);
-                for (int i = 0; i < template.rightRooms.Length - 1; i++)
-                {
-                    if (hit.transform.gameObject == template.rightRooms[i])
+                if (side == 3)
+                {//raycast up if raycastinfo != template.arraySide[] delete(gameObject)
+                    Vector2 fwd = transform.TransformDirection(Vector2.up);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
+                    //RaycastHit2D hit = Physics2D.Linecast(transform.position, new Vector2(0, -20));
+                    if (hit)
                     {
-                        allowed = true;
+                        Debug.Log("HIT");
                     }
-                    if (hit.collider == null)
+
+                    for (int i = 0; i < template.downTags.Length - 1; i++)
                     {
+
+
+                        if (hit && hit.transform.gameObject.CompareTag(template.downTags[i]))
+                        {
+                            Debug.Log("Allowed");
+                            allowed = true;
+                            break;
+                        }
+
+
+                    }
+                    if (hit == false && hit.collider == null || allowed == false)
+                    {
+                        Debug.Log("Deadened");
                         Destroy(gameObject);
                     }
-
+                  
                 }
-                if (hit.collider == null || allowed == false)
-                {
-                    Destroy(gameObject);
-                }
-
-            }
-            if (side == 3)
-            {
-                //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
-                Vector2 fwd = transform.TransformDirection(Vector2.up);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 20, 12);
-                Debug.Log(hit.transform.gameObject);
-                for (int i = 0; i < template.downRooms.Length - 1; i++)
-                {
-                    if (hit.transform.gameObject == template.downRooms[i])
-                    {
-                        allowed = true;
-                    }
-                    if (hit.collider == null)
-                    {
-                        Destroy(gameObject);
-                    }
-
-                }
-                if (hit.collider == null || allowed == false)
-                {
-                    Destroy(gameObject);
-                }
-
+                finished = true;
             }
         }
     }
