@@ -14,8 +14,8 @@ public class Door : MonoBehaviour
     void Start()
     {
         template = GameObject.Find("RoomTemplate").GetComponent<RoomTemplate>();
-        lineStart = GameObject.FindWithTag("Right").transform;
-        lineEnd = gameObject.transform.Find("lineEnd");
+        lineStart = GameObject.FindWithTag("LineStart").transform;
+        lineEnd = GameObject.FindWithTag("LineEnd").transform;
     }
 
     // Update is called once per frame
@@ -98,12 +98,13 @@ public class Door : MonoBehaviour
                 {
                     //raycast up if raycastinfo != template.arraySide[] delete(gameObject)
                     Vector2 fwd = transform.TransformDirection(Vector2.up);
+
                     //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
                     RaycastHit2D hit = Physics2D.Linecast(lineStart.position, lineEnd.position);
                     Debug.DrawLine(lineStart.position, lineEnd.position, Color.blue);
                     if (hit)
                     {
-                        Debug.Log("HIT");
+                        Debug.Log("HIT RIECH");
                     }
 
                     for (int i = 0; i < template.leftTags.Length - 1; i++)

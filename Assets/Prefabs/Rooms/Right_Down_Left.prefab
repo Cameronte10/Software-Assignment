@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4797932218168916}
   m_Layer: 0
   m_Name: lineEnd
-  m_TagString: Untagged
+  m_TagString: LineEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4768433828189446}
   m_Layer: 0
   m_Name: lineStart
-  m_TagString: Untagged
+  m_TagString: LineStart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

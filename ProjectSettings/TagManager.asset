@@ -23,6 +23,8 @@ TagManager:
   - Up_Left
   - Up_Right
   - Down_Right
+  - LineStart
+  - LineEnd
   layers:
   - Default
   - TransparentFX
