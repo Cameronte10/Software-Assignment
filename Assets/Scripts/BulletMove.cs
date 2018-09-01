@@ -19,11 +19,18 @@ public class BulletMove : MonoBehaviour {
         //rb.AddForce(transform.right * speed);
         if(range >= maxRange)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else{
             
             range++;
         }
 	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Room"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

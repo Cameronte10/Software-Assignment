@@ -15,16 +15,17 @@ public class Player : MonoBehaviour
     public GameObject bullet; //Get Bullet GameObject for shooting
     public float delay; //Shoot delay Timer
     public float delayMax; //Shoot delay Timer
-    float eDelay = 0;
-    float eDelayMax = 2;
+    float eDelay = 2;
+    float eDelayMax = 0.5f;
     Quaternion rotation; //Rotation of the bullet
-
+    public Animator animator;
 
     // Use this for initialization
     void Start() //runs on the first frame
     {
         player = GameObject.Find("Player"); //Finds the Player in game
         playerScript = player.GetComponent<Player>(); //gets the Player script in the player Objects
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,23 +33,39 @@ public class Player : MonoBehaviour
     {
         if (health <= 0)
         {
-            SceneManager.LoadScene(0); //load main menu
+            SceneManager.LoadScene(3); //load lose screen
         }
         if (Input.GetKey(KeyCode.W)) //on key press do:
         {
+            animator.SetBool("isUp", true);
+            animator.SetBool("isDown", false);
+            animator.SetBool("isRight", false);
+            animator.SetBool("isLeft", false);
             rb2D.AddForce(transform.up * speed); //move direction
         }
         if (Input.GetKey(KeyCode.S))
         {
+            animator.SetBool("isUp", false);
+            animator.SetBool("isDown", true);
+            animator.SetBool("isRight", false);
+            animator.SetBool("isLeft", false);
             rb2D.AddForce(-transform.up * speed);
         }
         if (Input.GetKey(KeyCode.A))
         {
+            animator.SetBool("isUp", false);
+            animator.SetBool("isDown", false);
+            animator.SetBool("isRight", false);
+            animator.SetBool("isLeft", true);
             rb2D.AddForce(-transform.right * speed);
         }
         if (Input.GetKey(KeyCode.D))
         {
             rb2D.AddForce(transform.right * speed);
+            animator.SetBool("isUp", false);
+            animator.SetBool("isDown", false);
+            animator.SetBool("isRight", true);
+            animator.SetBool("isLeft", false);
         }
         
         Shoot();//Call shoot function
