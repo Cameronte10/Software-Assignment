@@ -16,10 +16,10 @@ public class Player : MonoBehaviour
     public float delay; //Shoot delay Timer
     public float delayMax; //Shoot delay Timer
     float eDelay = 2;
-    float eDelayMax = 0.5f;
+    float eDelayMax = 0.75f;
     Quaternion rotation; //Rotation of the bullet
     public Animator animator;
-
+    public bool beingAttacked;
     // Use this for initialization
     void Start() //runs on the first frame
     {
@@ -67,7 +67,11 @@ public class Player : MonoBehaviour
             animator.SetBool("isRight", true);
             animator.SetBool("isLeft", false);
         }
-        
+        if (beingAttacked == true && eDelay > eDelayMax)
+        {
+            eDelay = 0;
+            health -= Enemy.enemyScript.damage;
+        }
         Shoot();//Call shoot function
         eDelay += 1*Time.deltaTime;
     }
@@ -107,11 +111,15 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && eDelay >= eDelayMax)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            eDelay = 0;
-            health -= Enemy.enemyScript.damage;
+            beingAttacked = true;
+            
         }
     }
-    
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        beingAttacked = false;
+    }
 }

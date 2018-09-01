@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class Enemy : MonoBehaviour
     public float radius = 5f;
     public bool isBoss = false;
     public Animator animator;
+    public Slider healthBar;
     // Use this for initialization
     void Start()
     {
+        healthBar.gameObject.SetActive(false);
         target = GameObject.Find("Player").GetComponent<Transform>();
         enemy = GameObject.Find("Enemy");
         enemyScript = this;
@@ -41,6 +44,10 @@ public class Enemy : MonoBehaviour
         
         if (results.gameObject.CompareTag("Player"))
         {
+            if (isBoss)
+            {
+                healthBar.gameObject.SetActive(true);
+            }
             transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(target.position.x, target.position.y), speed);
             if (target.position.x < transform.position.x)
             {
@@ -66,6 +73,10 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             health -= Player.playerScript.bulletDamage;
+            if (isBoss)
+            {
+                healthBar.value -= Player.playerScript.bulletDamage;
+            }
             //Debug.Log(Player.playerScript.bulletDamage);
             Destroy(collision.gameObject);
         }
