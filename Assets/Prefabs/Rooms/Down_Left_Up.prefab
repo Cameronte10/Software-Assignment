@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 61563670655862272}
   - component: {fileID: 61043878424810372}
   - component: {fileID: 61487102020033438}
-  - component: {fileID: 61169263171178738}
   m_Layer: 12
   m_Name: Down_Left_Up
   m_TagString: Down_Left_Up
@@ -345,31 +344,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.44, y: 0.31868863}
   m_EdgeRadius: 0
---- !u!61 &61169263171178738
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1331903112805854}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.44, y: 2.88}
-    newSize: {x: 0.1, y: 0.1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.44, y: 2.88}
-  m_EdgeRadius: 0
 --- !u!61 &61264356260826240
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -506,57 +480,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378c76b59c37f034bac34a69df718f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
-  currentRoomSide: 0
-  random: 0
-  collisionCount: 0
-  template: {fileID: 0}
-  spawned: 0
 --- !u!114 &114171288690253148
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1346565678310968}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   side: 0
+  distance: 0
   template: {fileID: 0}
-  lineStart: {fileID: 0}
-  lineEnd: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!114 &114198804342325548
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960497259478026}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   side: 3
+  distance: 0
   template: {fileID: 0}
-  lineStart: {fileID: 0}
-  lineEnd: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!114 &114610085321963098
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510057875498508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   side: 1
+  distance: 0
   template: {fileID: 0}
-  lineStart: {fileID: 0}
-  lineEnd: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!114 &114670496602192344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -568,12 +536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378c76b59c37f034bac34a69df718f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
-  currentRoomSide: 1
-  random: 0
-  collisionCount: 0
-  template: {fileID: 0}
-  spawned: 0
 --- !u!114 &114713345759784244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -585,7 +547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6eecd2274d345741837bf95d5797087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 0}
 --- !u!114 &114813481331228542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -597,12 +558,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378c76b59c37f034bac34a69df718f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
-  currentRoomSide: 3
-  random: 0
-  collisionCount: 0
-  template: {fileID: 0}
-  spawned: 0
 --- !u!212 &212010511978667872
 SpriteRenderer:
   m_ObjectHideFlags: 1

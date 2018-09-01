@@ -641,45 +641,42 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1410592885886708}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   side: 3
+  distance: 0
   template: {fileID: 0}
-  lineStart: {fileID: 0}
-  lineEnd: {fileID: 0}
 --- !u!114 &114128171686584918
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312938404859844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   side: 2
+  distance: 0
   template: {fileID: 0}
-  lineStart: {fileID: 0}
-  lineEnd: {fileID: 0}
 --- !u!114 &114384447411267208
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1070953449335014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   side: 0
+  distance: 0
   template: {fileID: 0}
-  lineStart: {fileID: 0}
-  lineEnd: {fileID: 0}
 --- !u!114 &114456224805274240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -691,27 +688,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378c76b59c37f034bac34a69df718f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
-  currentRoomSide: 2
-  random: 0
-  collisionCount: 0
-  template: {fileID: 0}
-  spawned: 0
 --- !u!114 &114461943391005280
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1665818987736604}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d54f1ecda2401ed46922696d126d4955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   side: 1
+  distance: 0
   template: {fileID: 0}
-  lineStart: {fileID: 0}
-  lineEnd: {fileID: 0}
 --- !u!114 &114488155210716912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,7 +713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6eecd2274d345741837bf95d5797087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 0}
 --- !u!114 &114774322630987332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -735,12 +724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378c76b59c37f034bac34a69df718f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
-  currentRoomSide: 1
-  random: 0
-  collisionCount: 0
-  template: {fileID: 0}
-  spawned: 0
 --- !u!114 &114816155417464598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -752,12 +735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378c76b59c37f034bac34a69df718f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
-  currentRoomSide: 0
-  random: 0
-  collisionCount: 0
-  template: {fileID: 0}
-  spawned: 0
 --- !u!114 &114960866908208982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -769,12 +746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378c76b59c37f034bac34a69df718f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
-  currentRoomSide: 3
-  random: 0
-  collisionCount: 0
-  template: {fileID: 0}
-  spawned: 0
 --- !u!212 &212070804850044842
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawnpoint : MonoBehaviour {
-    public GameObject[] rooms;
+  /*  public GameObject[] rooms;
     public int currentRoomSide; //0 left, 1 up, 2 right, 3 down
     public int random;
     public int collisionCount;
@@ -61,5 +61,5 @@ public class Spawnpoint : MonoBehaviour {
         }
     }
     
-    
+    */
 }

@@ -1,37 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public static Player playerScript;
-    public GameObject player;
-    public Rigidbody2D rb2D;
-    public float maxSpeed;
-    public float speed;
-    public int bulletDamage = 1;
-    public int health;
-    public GameObject bullet;
-    public float delay;
-    public float delayMax;
-
-    Quaternion rotation;
+    public static Player playerScript; //leave this out
+    public GameObject player; //Get player GameObject
+    public Rigidbody2D rb2D; //Get player RigidBody2D
+    //public float maxSpeed;
+    public float speed; //How fast player moves
+    public int bulletDamage = 1; //sets bullet damage
+    public int health = 6; //Health of the player
+    public GameObject bullet; //Get Bullet GameObject for shooting
+    public float delay; //Shoot delay Timer
+    public float delayMax; //Shoot delay Timer
+    float eDelay = 0;
+    float eDelayMax = 2;
+    Quaternion rotation; //Rotation of the bullet
 
 
     // Use this for initialization
-    void Start()
+    void Start() //runs on the first frame
     {
-        player = GameObject.Find("Player");
-        playerScript = player.GetComponent<Player>();
+        player = GameObject.Find("Player"); //Finds the Player in game
+        playerScript = player.GetComponent<Player>(); //gets the Player script in the player Objects
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //runs every frame
     {
-
-        if (Input.GetKey(KeyCode.W))
+        if (health <= 0)
         {
-            rb2D.AddForce(transform.up * speed);
+            SceneManager.LoadScene(0); //load main menu
+        }
+        if (Input.GetKey(KeyCode.W)) //on key press do:
+        {
+            rb2D.AddForce(transform.up * speed); //move direction
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -45,9 +50,9 @@ public class Player : MonoBehaviour
         {
             rb2D.AddForce(transform.right * speed);
         }
-        //Debug.Log(rb2D.velocity);
-        Shoot();
-      
+        
+        Shoot();//Call shoot function
+        eDelay += 1*Time.deltaTime;
     }
 
     void Shoot()
@@ -85,9 +90,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && eDelay >= eDelayMax)
         {
+            eDelay = 0;
             health -= Enemy.enemyScript.damage;
         }
     }
+    
 }

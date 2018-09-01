@@ -7,11 +7,17 @@ public class MainMenu : MonoBehaviour {
 
     public void MenuStart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void MenuQuit()
     {
         Application.Quit();
     }
+
+    public void GiveUp()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
