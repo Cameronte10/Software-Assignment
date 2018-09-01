@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -19,10 +20,12 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SpawnEnemies();
+            MainMenu();
         }
+
+       
 	}
     
     void SpawnEnemies()
@@ -34,5 +37,10 @@ public class GameController : MonoBehaviour {
         GameObject enemyPrefab = enemy[Random.Range(0, enemy.Length)];
         //enemyPrefab.transform.position = pos2D;
         Instantiate(enemyPrefab, pos3D, gameObject.transform.rotation);
+    }
+
+    void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
