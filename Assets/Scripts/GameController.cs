@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))//hitting escape loads the main menu
         {
             MainMenu();
         }
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour {
     
     void SpawnEnemies()
     {
-        //not working yet
+       //no longer using this
         Vector3 pos3D = new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax), 0);
         
         //spawnPos.position = pos2D;

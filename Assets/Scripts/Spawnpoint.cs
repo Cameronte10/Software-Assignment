@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawnpoint : MonoBehaviour {
+public class Spawnpoint : MonoBehaviour {//not using it
   /*  public GameObject[] rooms;
     public int currentRoomSide; //0 left, 1 up, 2 right, 3 down
     public int random;

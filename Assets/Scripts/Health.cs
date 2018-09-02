@@ -16,7 +16,7 @@ public class Health : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () { //as the health deceases the health sprite images. It is set up this way so that if healing was added it would still work
         currentHealth = playerScript.health;
         if (currentHealth == 6)
         {

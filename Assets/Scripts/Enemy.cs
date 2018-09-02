@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public bool isBoss = false;
     public Animator animator;
     public Slider healthBar;
+    public int bossDistance = 0;
     // Use this for initialization
     void Start()
     {
@@ -30,33 +31,35 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         
-
-        //transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2 (target.position.x, target.position.y), speed);
-        if (isBoss == true && health <= 0)
+        if (isBoss == true && health <= 0)//takes you to win screen
         {
             SceneManager.LoadScene(2);
         }
-        if (health <= 0)
+        if (health <= 0)//destroys normal enemys
         {
             Destroy(gameObject);
         }
-        Collider2D results = Physics2D.OverlapCircle(transform.position, radius);
+        Collider2D results = Physics2D.OverlapCircle(transform.position, radius);//creates a sphere that checks for collisions and spits them into the results
         
-        if (results.gameObject.CompareTag("Player"))
+        if (results.gameObject.CompareTag("Player"))//checks results for a player collision
         {
-            if (isBoss)
+            if (isBoss)//if this is the boss
             {
-                healthBar.gameObject.SetActive(true);
+                healthBar.gameObject.SetActive(true);//activates health bar on screen
+                transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(target.position.x, target.position.y + bossDistance), speed);//since the boss is bigger its middle is not in the collider. I had to offset it so that it could attack the player
             }
-            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(target.position.x, target.position.y), speed);
-            if (target.position.x < transform.position.x)
+            else
+            {
+                transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(target.position.x, target.position.y), speed);//normal enemy movement
+            }
+            if (target.position.x < transform.position.x)//animations for left
             {
                 animator.SetBool("isRight", false);
                 animator.SetBool("isLeft", true);
                 animator.SetBool("isUp", false);
                 animator.SetBool("isDown", false);
             }
-            if (target.position.x > transform.position.x)
+            if (target.position.x > transform.position.x)//animations for right
             {
                 animator.SetBool("isRight", true);
                 animator.SetBool("isLeft", false);
@@ -70,7 +73,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))//take damage if hit by bullet
         {
             health -= Player.playerScript.bulletDamage;
             if (isBoss)
@@ -82,7 +85,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos()//this allows me to see the OverlapCircle in the scene view
     {
         Color c = new Color(0, 1, 0, 0.3f);
         Gizmos.color = c;

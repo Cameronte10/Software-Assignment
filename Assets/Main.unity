@@ -10245,6 +10245,16 @@ Prefab:
       propertyPath: radius
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 61211887032932450, guid: 892fd17cec5824285bfd2f2c62456834,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114721236471759492, guid: 892fd17cec5824285bfd2f2c62456834,
+        type: 2}
+      propertyPath: bossDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 892fd17cec5824285bfd2f2c62456834, type: 2}

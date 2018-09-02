@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
             animator.SetBool("isRight", true);
             animator.SetBool("isLeft", false);
         }
-        if (beingAttacked == true && eDelay > eDelayMax)
+        if (beingAttacked == true && eDelay > eDelayMax)//allows the enemy to repeatedly hit you
         {
             eDelay = 0;
             health -= Enemy.enemyScript.damage;
@@ -78,13 +78,13 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-        delay += 10 * Time.deltaTime;
-        if (delay >= delayMax)
+        delay += 10 * Time.deltaTime;//delay for shooting increment
+        if (delay >= delayMax)//If delay greater than max
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow))//input
             {
                 rotation = Quaternion.Euler(0, 0, 90);
-                Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), rotation);
+                Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), rotation);//spawns bullet at the right direction
                 delay = 0;
             }
             else if (Input.GetKey(KeyCode.DownArrow))
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))//if hit by by enemy 
         {
             beingAttacked = true;
             

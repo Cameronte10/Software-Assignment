@@ -10,14 +10,14 @@ public class BulletMove : MonoBehaviour {
     // Use this for initialization
 	void Start () {
 
-        rb.AddForce(transform.right * speed);
+        rb.AddForce(transform.right * speed); //move forward
 	}
 	
 	// Update is called once per frame
     void Update () {
         
         //rb.AddForce(transform.right * speed);
-        if(range >= maxRange)
+        if(range >= maxRange) //if it goes too far; delete
         {
             Destroy(gameObject);
         }
@@ -28,7 +28,7 @@ public class BulletMove : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Room"))
+        if (collision.gameObject.CompareTag("Room")) //if it hits the wall; die
         {
             Destroy(gameObject);
         }

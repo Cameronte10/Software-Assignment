@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomTemplate : MonoBehaviour {
+public class RoomTemplate : MonoBehaviour {//not used atm
     public static RoomTemplate roomTemplate;
     public GameObject template;
     public GameObject[] leftRooms;
