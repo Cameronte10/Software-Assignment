@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
             health -= Enemy.enemyScript.damage;
         }
         Shoot();//Call shoot function
-        eDelay += 1*Time.deltaTime;
+        eDelay += 1 * Time.deltaTime;
     }
 
     void Shoot()

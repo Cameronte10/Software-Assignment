@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public Slider healthBar;
     public int bossDistance = 0;
+    public AudioSource audioSource;
+    public AudioSource BG;
+    public AudioClip Boss;
     // Use this for initialization
     void Start()
     {
@@ -25,6 +28,8 @@ public class Enemy : MonoBehaviour
         enemy = GameObject.Find("Enemy");
         enemyScript = this;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -45,28 +50,63 @@ public class Enemy : MonoBehaviour
         {
             if (isBoss)//if this is the boss
             {
+                BG.clip = Boss;
+                if (!BG.isPlaying)
+                {
+                    BG.Play();
+                }
+                
                 healthBar.gameObject.SetActive(true);//activates health bar on screen
                 transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(target.position.x, target.position.y + bossDistance), speed);//since the boss is bigger its middle is not in the collider. I had to offset it so that it could attack the player
             }
+
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            
+            
             else
             {
                 transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(target.position.x, target.position.y), speed);//normal enemy movement
+
             }
-            if (target.position.x < transform.position.x)//animations for left
+            if (isBoss)
             {
-                animator.SetBool("isRight", false);
-                animator.SetBool("isLeft", true);
-                animator.SetBool("isUp", false);
-                animator.SetBool("isDown", false);
+                if (target.position.x < transform.position.x)//animations for left
+                {
+                    animator.SetBool("isRight", false);
+                    animator.SetBool("isLeft", true);
+                    animator.SetBool("isUp", false);
+                    animator.SetBool("isDown", false);
+                   
+                }
+                if (target.position.x > transform.position.x)//animations for right
+                {
+                    animator.SetBool("isRight", true);
+                    animator.SetBool("isLeft", false);
+                    animator.SetBool("isUp", false);
+                    animator.SetBool("isDown", false);
+                   
+                }
             }
-            if (target.position.x > transform.position.x)//animations for right
+            else
             {
-                animator.SetBool("isRight", true);
-                animator.SetBool("isLeft", false);
-                animator.SetBool("isUp", false);
-                animator.SetBool("isDown", false);
+                if (target.position.x < transform.position.x)//animations for left
+                {
+                    animator.SetBool("isRight", false);
+                    animator.SetBool("isLeft", true);
+                    animator.SetBool("isUp", false);
+                    animator.SetBool("isDown", false);
+                }
+                if (target.position.x > transform.position.x)//animations for right
+                {
+                    animator.SetBool("isRight", true);
+                    animator.SetBool("isLeft", false);
+                    animator.SetBool("isUp", false);
+                    animator.SetBool("isDown", false);
+                }
             }
-            
         }
     }
 
