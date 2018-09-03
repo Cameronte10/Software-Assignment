@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         
         if (isBoss == true && health <= 0)//takes you to win screen
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         if (health <= 0)//destroys normal enemys
         {

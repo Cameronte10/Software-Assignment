@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     {
         if (health <= 0)
         {
-            SceneManager.LoadScene(3); //load lose screen
+            SceneManager.LoadScene(4); //load lose screen
         }
         if (Input.GetKey(KeyCode.W)) //on key press do:
         {

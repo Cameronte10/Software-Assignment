@@ -41,6 +41,6 @@ public class GameController : MonoBehaviour {
 
     void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 }

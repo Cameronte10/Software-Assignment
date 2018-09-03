@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
     //simple script for the buttons
+    public int scene;
+    private void Start()
+    {
+        
+        scene = Random.Range(0, 2);
+    }
     public void MenuStart()
     {
-        SceneManager.LoadScene(1);//loads game
+        SceneManager.LoadScene(scene);//loads game
     }
 
     public void MenuQuit()
@@ -17,7 +23,7 @@ public class MainMenu : MonoBehaviour {
 
     public void GiveUp()
     {
-        SceneManager.LoadScene(0);//loads main menu
+        SceneManager.LoadScene(2);//loads main menu
     }
 
 }
