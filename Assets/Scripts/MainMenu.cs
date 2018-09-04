@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour {
     private void Start()
     {
         
-        scene = Random.Range(0, 2);
+        scene = Random.Range(1, 3);
     }
     public void MenuStart()
     {
